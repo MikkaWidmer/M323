@@ -1,4 +1,5 @@
-package com.rockthejvm
+package com.rockthejvm.A01
+
 object Aufgabe1 extends App {
   // Imperative Lösung
   def calculateScore(word: String) = {

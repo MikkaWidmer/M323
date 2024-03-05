@@ -1,4 +1,4 @@
-package com.rockthejvm
+package com.rockthejvm.A01
 
 object TipCalculator {
   def calculateTip(groupSize: Int): Int = {

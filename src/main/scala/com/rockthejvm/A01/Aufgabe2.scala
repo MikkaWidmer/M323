@@ -1,4 +1,4 @@
-package com.rockthejvm
+package com.rockthejvm.A01
 
 object Aufgabe2 extends App {
   class ShoppingCart(items: List[String]) {
