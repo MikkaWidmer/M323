@@ -160,3 +160,48 @@
       val paar = (1, "zwei")
       ```
 
+
+21. **Traits**:
+    - Traits sind ähnlich wie Interfaces in anderen Sprachen und ermöglichen die Definition von Wiederverwendbarkeit von Methoden und Feldern.
+    - Beispiel:
+      ```scala
+      trait Greeting {
+        def greet(): Unit = println("Hello!")
+      }
+
+      class Person extends Greeting
+
+      val person = new Person
+      person.greet() // Ausgabe: Hello!
+      ```
+
+22. **Higher-Kinded Types (HKT)**:
+    - Erlaubt die Definition von abstrakten Typen, die über Typkonstruktoren parametrisiert sind.
+    - Beispiel:
+      ```scala
+      trait Functor[F[_]] {
+        def map[A, B](fa: F[A])(f: A => B): F[B]
+      }
+      ```
+
+23. **Typeclasses**:
+    - Typeclasses ermöglichen die Implementierung von Polymorphismus ohne Vererbung.
+    - Beispiel:
+      ```scala
+      trait Printable[A] {
+        def format(value: A): String
+      }
+
+      object PrintableInstances {
+        implicit val printableString: Printable[String] = (value: String) => value
+        implicit val printableInt: Printable[Int] = (value: Int) => value.toString
+      }
+
+      object Printable {
+        def format[A](value: A)(implicit printable: Printable[A]): String = printable.format(value)
+      }
+
+      import PrintableInstances._
+      val strResult = Printable.format("Hello") // Ausgabe: Hello
+      val intResult = Printable.format(42)      // Ausgabe: 42
+      ```
