@@ -205,3 +205,64 @@
       val strResult = Printable.format("Hello") // Ausgabe: Hello
       val intResult = Printable.format(42)      // Ausgabe: 42
       ```
+
+
+**Wichtige Fachbegriffe**
+
+- **Call by reference:** Parameter werden als Referenz übergeben, sodass Änderungen an ihnen außerhalb der Funktion wirksam sind.
+  Beispiel: 
+  ```java
+  void changeValue(int[] arr) {
+      arr[0] = 100;
+  }
+  ```
+
+- **Call by value:** Parameter werden als Kopie übergeben, Änderungen innerhalb der Funktion wirken sich nicht auf den Wert außerhalb der Funktion aus.
+  Beispiel:
+  ```java
+  void changeValue(int x) {
+      x = 100;
+  }
+  ```
+
+- **Eager evaluation:** Ausdrücke werden sofort ausgewertet.
+  Beispiel:
+  ```scala
+  val result = 3 + 4  // Ergebnis wird sofort berechnet
+  ```
+
+- **Impure functions:** Funktionen, die eine der Regeln für pure functions verletzen.
+  Beispiel:
+  ```java
+  int calculate(int x) {
+      return x + Math.random(); // Verletzt Regel 2, da Rückgabewert von Zufallszahl abhängt
+  }
+  ```
+
+- **Lazy evaluation:** Ausdrücke werden erst ausgewertet, wenn ihr Ergebnis benötigt wird.
+  Beispiel:
+  ```scala
+  val lazyResult = (1 to 1000000).map(_ * 2) // Wert wird erst bei Bedarf berechnet
+  ```
+
+- **Pure functions:** Funktionen, die drei Regeln erfüllen: nur ein Rückgabewert, abhängig nur von den Parametern und keine Veränderung existierender Werte.
+  Beispiel:
+  ```scala
+  def add(a: Int, b: Int): Int = a + b // Pure Funktion, da nur von den Parametern abhängig
+  ```
+
+- **Referenzielle Transparenz:** Eine Funktion ist referenziell transparent, wenn ihr Aufruf durch ihren Rückgabewert ersetzt werden kann, ohne das Programmverhalten zu ändern.
+  Beispiel:
+  ```scala
+  val sum = (x: Int, y: Int) => x + y
+  println("Sum of 4+5: " + sum(4, 5))  // Kann durch println("Sum of 4+5: " + 9) ersetzt werden
+  ```
+
+- **Rekursion:** Eine Funktion, die sich selbst aufruft, mit einem Abbruchkriterium, um Endlosschleifen zu vermeiden.
+  Beispiel:
+  ```scala
+  def factorial(n: Int): Int = {
+      if (n <= 1) 1
+      else n * factorial(n - 1)
+  }
+  ```
