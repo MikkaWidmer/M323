@@ -90,4 +90,73 @@
       } yield x * 2
       ```
 
-Das sind einige der grundlegenden Konzepte und Funktionen in Scala mit Beispielen für jedes. Diese Konzepte bilden die Grundlage für die funktionale Programmierung in Scala und ermöglichen eine elegante und effektive Codierung.
+13. **Pipelines**:
+    - Pipelines dienen dazu, Funktionen miteinander zu verketten, wobei der Rückgabewert einer Funktion als Parameter für die nächste Funktion verwendet wird.
+    - Beispiel:
+      ```scala
+      val pipelineResult = liste
+        .map(_ * 2)
+        .filter(_ % 3 == 0)
+        .sum
+      ```
+
+14. **IO-Typ**:
+    - Der IO-Typ kapselt Operationen, die Seiteneffekte verursachen, und ermöglicht ihre verzögerte Ausführung.
+    - Beispiel:
+      ```scala
+      import cats.effect.IO
+
+      val ioAktion: IO[Unit] = IO(println("Hallo Welt"))
+      ```
+
+15. **Streams / LazyList**:
+    - Streams und LazyLists repräsentieren Sequenzen von Elementen mit der Möglichkeit der Lazy Evaluation.
+    - Beispiel:
+      ```scala
+      val unendlicherStream = Stream.from(1)
+      val endlicherStream = (1 to 100).toStream
+      ```
+
+16. **Parallele Prozesse**:
+    - Parallele Prozesse ermöglichen die gleichzeitige Ausführung von verschiedenen Teilen eines Programms auf mehreren CPU-Kernen.
+    - Beispiel:
+      ```scala
+      import scala.concurrent.Future
+      import scala.concurrent.ExecutionContext.Implicits.global
+
+      val zukunft: Future[Int] = Future { 5 + 5 }
+      ```
+
+17. **Pattern Matching**:
+    - Pattern Matching ist ein mächtiges Konstrukt in Scala, das verwendet wird, um Datenstrukturen zu durchsuchen und entsprechend zu handeln.
+    - Beispiel:
+      ```scala
+      val zahl = 1
+      val ergebnis = zahl match {
+        case 0 => "Null"
+        case 1 => "Eins"
+        case _ => "Andere Zahl"
+      }
+      ```
+
+18. **Sets**:
+    - Sets speichern eindeutige Werte und eignen sich gut, um Duplikate zu vermeiden.
+    - Beispiel:
+      ```scala
+      val set = Set(1, 2, 3)
+      ```
+
+19. **Maps**:
+    - Maps bestehen aus Schlüssel-Wert-Paaren und ermöglichen das Mapping von einem Wert zu einem anderen.
+    - Beispiel:
+      ```scala
+      val map = Map("eins" -> 1, "zwei" -> 2, "drei" -> 3)
+      ```
+
+20. **Tupel**:
+    - Tupel sind geordnete Sammlungen von Elementen verschiedener Typen und haben eine feste Größe.
+    - Beispiel:
+      ```scala
+      val paar = (1, "zwei")
+      ```
+
